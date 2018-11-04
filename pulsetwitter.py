@@ -330,7 +330,7 @@ async def on_message(message):
                         status['tweets'].append(tweet_link)
                         status['points'] += 5
                         user.save(status)
-                        embed = discord.Embed(title='You have been awarded one point', color=0x15D0A0)
+                        embed = discord.Embed(title='You have been awarded five points', color=0x15D0A0)
                         await bot.send_message(message.channel, embed=embed)
                 else:
                     embed = discord.Embed(title='You have not mentioned Pulse in your tweet.', color=0x15D0A0)
