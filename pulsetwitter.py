@@ -370,7 +370,7 @@ async def store(ctx, *args):
 
 @bot.command(pass_context=True)
 async def award(ctx, *args):
-    if ctx.message.author.id == '203262972599074827':
+    if ctx.message.author.id == '203262972599074827' or ctx.message.author.id == '209294027332386817':
         mesg = ' '.join(args)
         mesg = mesg.split(' ')
         selected_user = mesg[0]
@@ -389,6 +389,32 @@ async def award(ctx, *args):
             embed = discord.Embed(title=' ', color=0xe74c3c)
             embed.add_field(name='Error',
                             value='{} cannot be awarded because he is not in the database 🤔'.format(selected_user))
+            await bot.send_message(ctx.message.channel, embed=embed)
+    else:
+        embed = discord.Embed(title='You cannot use this command.', color=0xe74c3c)
+        await bot.send_message(ctx.message.channel, embed=embed)
+        
+@bot.command(pass_context=True)
+async def spank(ctx, *args):
+    if ctx.message.author.id == '203262972599074827' or ctx.message.author.id == '209294027332386817':
+        mesg = ' '.join(args)
+        mesg = mesg.split(' ')
+        selected_user = mesg[0]
+        author_id = re.sub('[<@>]', '', selected_user)
+        print(selected_user)
+        num_points = mesg[1]
+        user = mongo.db.twitterhandles
+        status = user.find_one({'member_id': author_id})
+        if status is not None:
+            status['points'] -= int(num_points)
+            user.save(status)
+            embed = discord.Embed(title=' ', color=0x15D0A0)
+            embed.add_field(name='Spanked!', value='{} has been deducted {} points'.format(selected_user, num_points))
+            await bot.send_message(ctx.message.channel, embed=embed)
+        elif status is None:
+            embed = discord.Embed(title=' ', color=0xe74c3c)
+            embed.add_field(name='Error',
+                            value='{} cannot be spanked because he is not in the database 🤔'.format(selected_user))
             await bot.send_message(ctx.message.channel, embed=embed)
     else:
         embed = discord.Embed(title='You cannot use this command.', color=0xe74c3c)
