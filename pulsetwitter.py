@@ -34,7 +34,7 @@ def ten_codes(quantity):
     # print(proxy)
     total = ''
     aspen = []
-    if quantity == 10:
+    if quantity == 25:
         try:
             total = tencodes.pop(0)
             with open('10codes.txt', 'w') as f:
@@ -45,7 +45,7 @@ def ten_codes(quantity):
         except IndexError:
             print('no more codes')
 
-    elif quantity == 25:
+    elif quantity == 50:
         try:
             total = twentyfivecodes.pop(0)
             with open('25codes.txt', 'w') as f:
@@ -55,7 +55,7 @@ def ten_codes(quantity):
 
         except IndexError:
             print('no more codes')
-    elif quantity == 50:
+    elif quantity == 100:
         try:
             total = fiftycodes.pop(0)
             with open('50codes.txt', 'w') as f:
@@ -65,7 +65,7 @@ def ten_codes(quantity):
 
         except IndexError:
             print('no more codes')
-    elif quantity == 100:
+    elif quantity == 200:
         try:
             total = hundredcodes.pop(0)
             with open('100codes.txt', 'w') as f:
@@ -78,7 +78,7 @@ def ten_codes(quantity):
 
 
 def discount_codes(quantity):
-    if quantity == 50:
+    if quantity == 125:
         try:
             total = twentyfivememberships.pop(0)
             with open('25memberships.txt', 'w') as f:
@@ -89,7 +89,7 @@ def discount_codes(quantity):
         except IndexError:
             print('no more codes')
 
-    elif quantity == 100:
+    elif quantity == 250:
         try:
             total = fiftymemberships.pop(0)
             with open('50memberships.txt', 'w') as f:
