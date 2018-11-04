@@ -17,11 +17,7 @@ app.config['MONGO_URI'] = 'mongodb://mason:masonpulse1@ds055689.mlab.com:55689/p
 
 mongo = PyMongo(app)
 
-bot = commands.Bot(command_prefix='!')
-
-utc_timestamp = datetime.datetime.utcnow()
-
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='$')
 bot.remove_command('pack')
 
 tencodes = open('10codes.txt').read().splitlines()
@@ -214,7 +210,7 @@ async def on_message(message):
     # do some extra stuff here
 
     if message.server is not None and 'commands' in message.channel.name:
-        if message.content.startswith('!pack'):
+        if message.content.startswith('$pack'):
             proxy_quantity = message.content.split(" ")[1]
             user = mongo.db.twitterhandles
             author_id = message.author.id
@@ -262,7 +258,7 @@ async def on_message(message):
                 await bot.send_message(message.channel, embed=embed)
 
     if message.server is not None and 'commands' in message.channel.name:
-        if message.content.startswith('!membership'):
+        if message.content.startswith('$membership'):
             membership_percentage = message.content.split(" ")[1]
             #membership_percentage = int(membership_percentage) * 2
             user = mongo.db.twitterhandles
@@ -352,7 +348,7 @@ async def store(ctx, *args):
         embed.add_field(name='**MEMBERSHIPS**',
                         value='25% OFF MEMBERSHIP - 125 points\n50% OFF MEMBERSHIP - 250 points', inline=False)
         embed.add_field(name='**COMMANDS TO REDEEM**',
-                        value='`!pack <amount>`\n`!membership <amount>`')
+                        value='`$pack <amount>`\n`$membership <amount>`')
         embed.set_footer(text='@PulseNotify | @PulseProxies - @k0rnsyrup',
                          icon_url='https://cdn.discordapp.com/attachments/487222109827891201/492206705472438284/5-02.png')
         await bot.send_message(ctx.message.channel, embed=embed)
