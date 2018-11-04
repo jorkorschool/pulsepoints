@@ -370,7 +370,7 @@ async def store(ctx, *args):
 
 @bot.command(pass_context=True)
 async def award(ctx, *args):
-    if 'commands' in ctx.message.channel.name and ctx.message.author.id == '203262972599074827':
+    if ctx.message.author.id == '203262972599074827':
         mesg = ' '.join(args)
         mesg = mesg.split(' ')
         selected_user = mesg[0]
