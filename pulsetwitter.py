@@ -220,7 +220,7 @@ async def on_message(message):
             author_id = message.author.id
             status = user.find_one({'member_id': author_id})
 
-            quantities = {'10': 25, '25': 50, '50': 100, '100': 200}
+            quantities = {'10': 25, '25': 50, '50': 100, '100': 200} #CHANGE PROXY COSTS HERE - (# OF POINTS IS THE VALUE WITHOUT QUOTES
 
             for key, value in quantities.items():
                 if key == proxy_quantity:
@@ -269,7 +269,7 @@ async def on_message(message):
             author_id = message.author.id
             status = user.find_one({'member_id': author_id})
 
-            membership_quantities = {'25': 125, '50': 250}
+            membership_quantities = {'25': 125, '50': 250} #CHANGE MEMBERSHIP COSTS HERE - (# OF POINTS IS THE VALUE WITHOUT QUOTES
 
             for key, value in membership_quantities.items():
                 if key == membership_percentage:
