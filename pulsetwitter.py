@@ -239,6 +239,13 @@ async def on_message(message):
                                                 ten_codes(final_quantity)))
                             # if message.channel.name is None:
                             await bot.send_message(message.author, embed=embed)
+                            
+                            username = message.author.name
+                            mason = discord.utils.get(bot.get_all_members(), id='203262972599074827')
+
+                            embed = discord.Embed(title='USER REDEEMED CODE', color=0x15D0A0)
+                            embed.add_field(name='CODE REDEEMED', value='{} redeemed a {} pack of proxies.'.format(username, proxy_quantity))
+                            await bot.send_message(mason, embed=embed)
                             break
                         else:
                             embed = discord.Embed(title='Sorry...')
@@ -286,10 +293,17 @@ async def on_message(message):
 
                             embed = discord.Embed(title="CONGRATULATIONS", color=0x15D0A0)
                             embed.add_field(name='DISCOUNT CODE',
-                                            value="{}\n\n You can redeem your proxies at https://pulseproxies.io/".format(
+                                            value="{}\n\n You can redeem your membership at https://pulseproxies.io/".format(
                                                 discount_codes(final_quantity)))
                             # if message.channel.name is None:
                             await bot.send_message(message.author, embed=embed)
+                            username = message.author.name
+                            mason = discord.utils.get(bot.get_all_members(), id='203262972599074827')
+
+                            embed = discord.Embed(title='USER REDEEMED CODE', color=0x15D0A0)
+                            embed.add_field(name='CODE REDEEMED',
+                                            value='{} redeemed a {}% membership code.'.format(username, membership_percentage))
+                            await bot.send_message(mason, embed=embed)
                             break
                         else:
                             embed = discord.Embed(title='Sorry...')
