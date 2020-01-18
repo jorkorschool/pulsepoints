@@ -6,14 +6,14 @@ import tweepy
 from discord.ext import commands
 import re
 
-ckey = '7ctRJQdsF8YsmOkoLRstua9zE'  # Consumer Key
-csecret = 'AyJq3LHXMTmPxfOozBWP2JaqjF13wCDR4ksTdPe2SgbFbjfRQ6'  # Consumer Secret
-atoken = '894714120804552706-RmjiIj982hhmbX8koTk0cvgkHiwplyu'  # Access Token
-asecret = 'wyBPSgkLPjVXpAcotS5sHbyKg6ILdtvjGKXb59TKhmvJQ'  # Access Secret
+ckey = 'Consumer Key'  # Consumer Key
+csecret = 'Consumer Secret'  # Consumer Secret
+atoken = 'Access Token'  # Access Token
+asecret = 'Access Secret'  # Access Secret
 
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'pulsenotify'
-app.config['MONGO_URI'] = 'mongodb://mason:masonpulse1@ds055689.mlab.com:55689/pulsenotify'
+app.config['MONGO_URI'] = 'mongodb://fu:fu@fu.mlab.com:55689/pulsenotify'
 
 mongo = PyMongo(app)
 
