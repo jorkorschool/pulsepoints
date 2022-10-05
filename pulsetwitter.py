@@ -422,4 +422,4 @@ async def spank(ctx, *args):
 
 
 if __name__ == '__main__':
-    bot.run('NTA4MTY2MDM1NzE5ODQ3OTM4.Dr7SKg.sEokEpNzEP4eLqYVTMKpY4FWxU0')
+    bot.run('nicetry')
